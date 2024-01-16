@@ -8,6 +8,7 @@ import BottomBar from "../component/shared/BottomBar";
 import LeftSIdeBar from "../component/shared/LeftSIdeBar";
 import CenterComponent from "../component/shared/CenterComponent";
 import RightSIdeBar from "../component/shared/RightSIdeBar";
+import Loader from "../component/shared/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,12 +28,13 @@ export default function RootLayout({
         <body className={inter.className}>
           <Topbar />
           <main>
-            <LeftSIdeBar />
+            {/* <LeftSIdeBar />
             <section>
-              {children}
+            {children}
             </section>
-            <RightSIdeBar />
+          <RightSIdeBar /> */}
           </main>
+          <Loader/>
           <BottomBar />
         </body>
       </html>

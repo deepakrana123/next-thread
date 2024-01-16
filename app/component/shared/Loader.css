@@ -1,0 +1,103 @@
+.loader{
+    --duration:3s;
+    --primary:rgba(39,94,254,1);
+    --primary-light:#2f71ff;
+    --primary-rgba:rgba(39,94,254,0);
+    width:200px;
+    height:320px;
+    position: relative;
+    transition-property: preserve-3d;
+
+}
+
+
+@media (max-width:480px){
+    .loader{
+        zoom:0.4s
+    }
+}
+
+.loader:before ,.loader:after{
+    --r: 20.5deg;
+    content: "";
+    width: 320px;
+    height: 140px;
+    position: absolute;
+    right:32%;
+    bottom:-11px;
+    background: #e8e8e8;
+    transform:translateZ(200px) rotate(var(-r));
+    -webkit-animation: mask var(--duration) linear forwards infinite;
+    animation: mask var(--duration) linear forwards infinite;
+
+}
+
+.loader:after{
+    --r:20.5deg;
+    right:auto;
+    left:32%
+}
+
+.loader .ground{
+   position: relative;
+   left:-50px;
+   bottom:-120px;
+   transform-style: preserve-3d;
+  transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(1);
+}
+
+.loader .ground div{
+    transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
+  width: 200px;
+  height: 200px;
+  background: var(--primary);
+  background: linear-gradient(45deg, var(--primary) 0%, var(--primary) 50%, var(--primary-light) 50%, var(--primary-light) 100%);
+  transform-style: preserve-3d;
+  -webkit-animation: ground var(--duration) linear forwards infinite;
+  animation: ground var(--duration) linear forwards infinite;
+}
+
+.loader .ground div::before .loader .ground div::after{
+    --rx: 90deg;
+  --ry: 0deg;
+  --x: 44px;
+  --y: 162px;
+  --z: -50px;
+  content: "";
+  width: 156px;
+  height: 300px;
+  opacity: 0;
+  background: linear-gradient(var(--primary), var(--primary-rgba));
+  position: absolute;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--x), var(--y)) translateZ(var(--z));
+  -webkit-animation: ground-shine var(--duration) linear forwards infinite;
+  animation: ground-shine var(--duration) linear forwards infinite;
+}
+.loader .ground div:after {
+    --rx: 90deg;
+    --ry: 90deg;
+    --x: 0;
+    --y: 177px;
+    --z: 150px;
+  }
+.loader .box{
+    --x:0;
+    --y:0;
+    position: relative;
+    -webkit-animation: var(--duration) linear forwards infinite;
+    animation: var(--duration) linear forwards infinite;
+    transform: translate(var(--x), var(--y));
+}
+
+.loader .box .div{
+    background-color: var(--primary);
+    width:48px;
+    height: 48px;
+    position: relative;
+    transition: preserve-3d;
+    -webkit-animation: var(--duration) ease forwards infinite;
+  animation: var(--duration) ease forwards infinite;
+  transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg) scale(0);
+
+}
+  
